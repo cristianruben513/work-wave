@@ -9,14 +9,14 @@ export const Navbar = () => {
       <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between">
         <Logo />
 
-        <div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full">
+        <div className="space-x-4 md:w-auto flex items-center justify-between">
           <Link
             className={buttonVariants({ size: "sm", variant: "outline" })}
             href="/sign-in">
             Inicia Sesion
           </Link>
           <Link
-            className={cn(buttonVariants({ size: "sm" }), "hidden md:block")}
+            className={cn(buttonVariants({ size: "sm" }), "hidden md:flex")}
             href="/sign-up">
             Probar TeamPilot gratis
           </Link>
