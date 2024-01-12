@@ -1,7 +1,7 @@
 import Link from "next/link";
-
 import { Logo } from "@/components/logo";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
   return (
@@ -13,10 +13,10 @@ export const Navbar = () => {
           <Link
             className={buttonVariants({ size: "sm", variant: "outline" })}
             href="/sign-in">
-            Iniciar Sesion
+            Inicia Sesion
           </Link>
           <Link
-            className={buttonVariants({ size: "sm" })}
+            className={cn(buttonVariants({ size: "sm" }), "hidden md:block")}
             href="/sign-up">
             Probar TeamPilot gratis
           </Link>

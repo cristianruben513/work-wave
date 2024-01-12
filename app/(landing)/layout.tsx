@@ -8,7 +8,7 @@ const MarketingLayout = ({ children }: { children: React.ReactNode; }) => {
       <Background />
       <Navbar />
 
-      <main className="pt-24 pb-20 ">
+      <main className="pt-24 pb-10 :pb-20 ">
         {children}
       </main>
 

@@ -43,7 +43,7 @@ const MarketingPage = () => {
         alt="Screenshot"
         width={2000}
         height={1008}
-        className="rounded-xl mt-10 max-w-sm sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
+        className="rounded-xl mt-10 max-w-72 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
       />
 
       <Image
@@ -51,7 +51,7 @@ const MarketingPage = () => {
         alt="Screenshot"
         width={2000}
         height={1008}
-        className="rounded-xl mt-10 max-w-sm sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
+        className="rounded-xl mt-6 md:mt-10 max-w-72 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
       />
 
     </div>
