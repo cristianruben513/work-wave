@@ -1,4 +1,4 @@
-import Background from "@/app/(landing)/_components/background";
+import Background from "@/components/background";
 
 const ClerkLayout = ({ children }: { children: React.ReactNode; }) => {
   return (

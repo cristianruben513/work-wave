@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@clerk/localizations": "^1.26.13",
     "@clerk/nextjs": "^4.26.2",
+    "@clerk/themes": "^1.7.9",
     "@hello-pangea/dnd": "^16.3.0",
     "@prisma/client": "^5.5.2",
     "@radix-ui/react-accordion": "^1.1.2",
