@@ -82,7 +82,7 @@ export const Description = ({
       <AlignLeft className="h-5 w-5 mt-0.5 text-neutral-700" />
       <div className="w-full">
         <p className="font-semibold text-neutral-700 mb-2">
-          Description
+          Descripcion
         </p>
         {isEditing ? (
           <form
@@ -93,7 +93,7 @@ export const Description = ({
             <FormTextarea
               id="description"
               className="w-full mt-2"
-              placeholder="Add a more detailed description"
+              placeholder="Agrega una descripción detallada..."
               defaultValue={data.description || undefined}
               errors={fieldErrors}
               ref={textareaRef}
@@ -118,7 +118,7 @@ export const Description = ({
             role="button"
             className="min-h-[78px] bg-neutral-200 text-sm font-medium py-3 px-3.5 rounded-md"
           >
-            {data.description || "Add a more detailed description..."}
+            {data.description || "Agrega una descripción detallada..."}
           </div>
         )}
       </div>

@@ -9,7 +9,7 @@ import { MobileSidebar } from "./mobile-sidebar";
 
 export const Navbar = () => {
   return (
-    <nav className="fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm bg-white flex items-center">
+    <nav className="fixed z-50 top-0 px-4 w-full h-16 shadow-xl shadow-neutral-600/10 bg-white flex items-center">
       <MobileSidebar />
       <div className="flex items-center gap-x-4">
         <div className="hidden md:flex">
@@ -17,7 +17,7 @@ export const Navbar = () => {
         </div>
         <FormPopover align="start" side="bottom" sideOffset={18}>
           <Button variant="primary" size="sm" className="rounded-sm hidden md:block h-auto  py-1.5 px-2">
-            Create
+            Crear tablero
           </Button>
         </FormPopover>
         <FormPopover>

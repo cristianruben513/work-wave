@@ -1,15 +1,9 @@
+import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { notFound, redirect } from "next/navigation";
-
-import { db } from "@/lib/db";
-
 import { BoardNavbar } from "./_components/board-navbar";
 
-export async function generateMetadata({ 
-  params
- }: {
-  params: { boardId: string; };
- }) {
+export async function generateMetadata({ params }: { params: { boardId: string; }; }) {
   const { orgId } = auth();
 
   if (!orgId) {

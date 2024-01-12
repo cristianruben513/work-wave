@@ -69,7 +69,7 @@ export const Actions = ({
   return (
     <div className="space-y-2 mt-2">
       <p className="text-xs font-semibold">
-        Actions
+        Acciones
       </p>
       <Button
         onClick={onCopy}
@@ -79,7 +79,7 @@ export const Actions = ({
         size="inline"
       >
         <Copy className="h-4 w-4 mr-2" />
-        Copy
+        Copiar
       </Button>
       <Button
         onClick={onDelete}
@@ -89,7 +89,7 @@ export const Actions = ({
         size="inline"
       >
         <Trash className="h-4 w-4 mr-2" />
-        Delete
+        Eliminar
       </Button>
     </div>
   );

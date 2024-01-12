@@ -1,16 +1,9 @@
-import { format } from "date-fns";
-import { AuditLog } from "@prisma/client"
-
-import { generateLogMessage } from "@/lib/generate-log-message";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { generateLogMessage } from "@/lib/generate-log-message";
+import { AuditLog } from "@prisma/client";
+import { format } from "date-fns";
 
-interface ActivityItemProps {
-  data: AuditLog;
-};
-
-export const ActivityItem = ({
-  data,
-}: ActivityItemProps) => {
+export const ActivityItem = ({ data, }: { data: AuditLog }) => {
   return (
     <li className="flex items-center gap-x-2">
       <Avatar className="h-8 w-8">

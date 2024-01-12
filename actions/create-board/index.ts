@@ -3,18 +3,18 @@
 import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
 
-import { db } from "@/lib/db";
 import { createSafeAction } from "@/lib/create-safe-action";
+import { db } from "@/lib/db";
 
-import { InputType, ReturnType } from "./types";
-import { CreateBoard } from "./schema";
 import { createAuditLog } from "@/lib/create-audit-log";
-import { ACTION, ENTITY_TYPE } from "@prisma/client";
-import { 
-  incrementAvailableCount, 
-  hasAvailableCount
+import {
+  hasAvailableCount,
+  incrementAvailableCount
 } from "@/lib/org-limit";
 import { checkSubscription } from "@/lib/subscription";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
+import { CreateBoard } from "./schema";
+import { InputType, ReturnType } from "./types";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -30,7 +30,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 
   if (!canCreate && !isPro) {
     return {
-      error: "You have reached your limit of free boards. Please upgrade to create more."
+      error: "Has alcanzado tu límite de tableros gratuitos. Por favor, actualiza tu plan para crear más."
     }
   }
 
@@ -66,7 +66,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     });
 
     if (!isPro) {
-     await incrementAvailableCount();
+      await incrementAvailableCount();
     }
 
     await createAuditLog({

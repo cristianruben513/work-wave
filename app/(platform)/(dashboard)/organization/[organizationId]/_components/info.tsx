@@ -22,7 +22,7 @@ export const Info = ({
   }
 
   return (
-    <div className="flex items-center gap-x-4">
+    <div className="flex items-center gap-x-4 bg-sky-400/10 p-4 backdrop-blur-sm rounded-md">
       <div className="w-[60px] h-[60px] relative">
         <Image
           fill
@@ -37,7 +37,7 @@ export const Info = ({
         </p>
         <div className="flex items-center text-xs text-muted-foreground">
           <CreditCard className="h-3 w-3 mr-1" />
-          {isPro ? "Pro" : "Free"}
+          {isPro ? "Profesional" : "Gratis"}
         </div>
       </div>
     </div>

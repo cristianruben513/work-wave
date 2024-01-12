@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { stripeRedirect } from "@/actions/stripe-redirect";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useAction } from "@/hooks/use-action";
 import { useProModal } from "@/hooks/use-pro-modal";
+import Image from "next/image";
 import { toast } from "sonner";
 
 export const ProModal = () => {
@@ -42,17 +42,6 @@ export const ProModal = () => {
           <h2 className="font-semibold text-xl">
             Actualiza a TeamPilot Pro hoy!
           </h2>
-          <p className="text-xs font-semibold text-neutral-600">
-            Explora lo mejor de TeamPilot
-          </p>
-          <div className="pl-3">
-            <ul className="text-sm list-disc">
-              <li>Unlimited boards</li>
-              <li>Advanced checklists</li>
-              <li>Admin and security features</li>
-              <li>And more!</li>
-            </ul>
-          </div>
           <Button
             disabled={isLoading}
             onClick={onClick}

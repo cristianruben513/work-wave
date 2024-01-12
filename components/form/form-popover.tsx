@@ -39,7 +39,7 @@ export const FormPopover = ({
 
   const { execute, fieldErrors } = useAction(createBoard, {
     onSuccess: (data) => {
-      toast.success("Board created!");
+      toast.success("Tablero Creado!");
       closeRef.current?.click();
       router.push(`/board/${data.id}`);
     },
@@ -68,7 +68,7 @@ export const FormPopover = ({
         sideOffset={sideOffset}
       >
         <div className="text-sm font-medium text-center text-neutral-600 pb-4">
-          Create board
+          Crear Tablero
         </div>
         <PopoverClose ref={closeRef} asChild>
           <Button

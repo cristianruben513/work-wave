@@ -43,22 +43,22 @@ export const NavItem = ({
 
   const routes = [
     {
-      label: "Boards",
+      label: "Tableros",
       icon: <Layout className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}`,
     },
     {
-      label: "Activity",
+      label: "Actividad",
       icon: <Activity className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/activity`,
     },
     {
-      label: "Settings",
+      label: "Configuración",
       icon: <Settings className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/settings`,
     },
     {
-      label: "Billing",
+      label: "Facturación",
       icon: <CreditCard className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/billing`,
     },
@@ -119,9 +119,9 @@ NavItem.Skeleton = function SkeletonNavItem() {
   return (
     <div className="flex items-center gap-x-2">
       <div className="w-10 h-10 relative shrink-0">
-        <Skeleton className="h-full w-full absolute" />
+        <Skeleton className="h-full w-full absolute bg-white" />
       </div>
-      <Skeleton className="h-10 w-full" />
+      <Skeleton className="h-10 w-full bg-white" />
     </div>
   );
 };

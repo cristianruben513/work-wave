@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "sonner";
-import { MoreHorizontal, X } from "lucide-react";
+import { MoreHorizontal, Trash, X } from "lucide-react";
 
 import { deleteBoard } from "@/actions/delete-board";
 import { useAction } from "@/hooks/use-action";
@@ -41,7 +41,7 @@ export const BoardOptions = ({ id }: BoardOptionsProps) => {
         align="start"
       >
         <div className="text-sm font-medium text-center text-neutral-600 pb-4">
-          Board actions
+          Acciones
         </div>
         <PopoverClose asChild>
           <Button 
@@ -57,7 +57,8 @@ export const BoardOptions = ({ id }: BoardOptionsProps) => {
           disabled={isLoading}
           className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
         >
-          Delete this board
+          <Trash className="h-4 w-4 mr-2 text-red-400" />
+          Eliminar este tablero
         </Button>
       </PopoverContent>
     </Popover>

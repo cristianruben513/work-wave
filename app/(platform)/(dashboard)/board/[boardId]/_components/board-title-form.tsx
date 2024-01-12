@@ -1,27 +1,16 @@
 "use client";
 
-import { toast } from "sonner";
-import { ElementRef, useRef, useState } from "react";
 import { Board } from "@prisma/client";
+import { ElementRef, useRef, useState } from "react";
+import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button";
-import { FormInput } from "@/components/form/form-input";
 import { updateBoard } from "@/actions/update-board";
+import { FormInput } from "@/components/form/form-input";
+import { Button } from "@/components/ui/button";
 import { useAction } from "@/hooks/use-action";
 
-interface BoardTitleFormProps {
-  data: Board;
-};
-
-export const BoardTitleForm = ({
-  data,
-}: BoardTitleFormProps) => {
+export const BoardTitleForm = ({ data }: { data: Board }) => {
   const { execute } = useAction(updateBoard, {
-    onSuccess: (data) => {
-      toast.success(`Board "${data.title}" updated!`);
-      setTitle(data.title);
-      disableEditing();
-    },
     onError: (error) => {
       toast.error(error);
     }
@@ -36,8 +25,8 @@ export const BoardTitleForm = ({
   const enableEditing = () => {
     setIsEditing(true);
     setTimeout(() => {
-     inputRef.current?.focus();
-     inputRef.current?.select(); 
+      inputRef.current?.focus();
+      inputRef.current?.select();
     })
   };
 
@@ -47,7 +36,7 @@ export const BoardTitleForm = ({
 
   const onSubmit = (formData: FormData) => {
     const title = formData.get("title") as string;
-    
+
     execute({
       title,
       id: data.id,
@@ -71,7 +60,7 @@ export const BoardTitleForm = ({
       </form>
     )
   }
-  
+
   return (
     <Button
       onClick={enableEditing}
