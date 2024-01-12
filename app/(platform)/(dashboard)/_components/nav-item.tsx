@@ -48,11 +48,6 @@ export const NavItem = ({
       href: `/organization/${organization.id}`,
     },
     {
-      label: "Actividad",
-      icon: <Activity className="h-4 w-4 mr-2" />,
-      href: `/organization/${organization.id}/activity`,
-    },
-    {
       label: "Configuración",
       icon: <Settings className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/settings`,
@@ -77,7 +72,7 @@ export const NavItem = ({
         onClick={() => onExpand(organization.id)}
         className={cn(
           "flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline",
-          isActive && !isExpanded && "bg-sky-500/10 text-sky-700"
+          isActive && !isExpanded && "bg-sky-500/20 text-sky-700"
         )}
       >
         <div className="flex items-center gap-x-2">
@@ -102,7 +97,7 @@ export const NavItem = ({
             onClick={() => onClick(route.href)}
             className={cn(
               "w-full font-normal justify-start pl-10 mb-1",
-              pathname === route.href && "bg-sky-500/10 text-sky-700"
+              pathname === route.href && "bg-sky-500/20 text-sky-700"
             )}
             variant="ghost"
           >

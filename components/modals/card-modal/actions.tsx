@@ -1,33 +1,26 @@
 "use client";
 
-import { toast } from "sonner";
+import { copyCard } from "@/actions/copy-card";
+import { deleteCard } from "@/actions/delete-card";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useAction } from "@/hooks/use-action";
+import { useCardModal } from "@/hooks/use-card-modal";
+import { CardWithList } from "@/types";
 import { Copy, Trash } from "lucide-react";
 import { useParams } from "next/navigation";
+import { toast } from "sonner";
 
-import { CardWithList } from "@/types";
-import { useAction } from "@/hooks/use-action";
-import { copyCard } from "@/actions/copy-card";
-import { Button } from "@/components/ui/button";
-import { deleteCard } from "@/actions/delete-card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useCardModal } from "@/hooks/use-card-modal";
-
-interface ActionsProps {
-  data: CardWithList;
-};
-
-export const Actions = ({
-  data,
-}: ActionsProps) => {
+export const Actions = ({ data }: { data: CardWithList }) => {
   const params = useParams();
   const cardModal = useCardModal();
 
-  const { 
+  const {
     execute: executeCopyCard,
     isLoading: isLoadingCopy,
   } = useAction(copyCard, {
-    onSuccess: (data) => {
-      toast.success(`Card "${data.title}" copied`);
+    onSuccess: () => {
+      toast.success(`Copiado`);
       cardModal.onClose();
     },
     onError: (error) => {
@@ -35,12 +28,12 @@ export const Actions = ({
     },
   });
 
-  const { 
+  const {
     execute: executeDeleteCard,
     isLoading: isLoadingDelete,
   } = useAction(deleteCard, {
-    onSuccess: (data) => {
-      toast.success(`Card "${data.title}" deleted`);
+    onSuccess: () => {
+      toast.success(`Eliminado`);
       cardModal.onClose();
     },
     onError: (error) => {
@@ -50,7 +43,6 @@ export const Actions = ({
 
   const onCopy = () => {
     const boardId = params.boardId as string;
-
     executeCopyCard({
       id: data.id,
       boardId,
@@ -65,7 +57,7 @@ export const Actions = ({
       boardId,
     });
   };
-  
+
   return (
     <div className="space-y-2 mt-2">
       <p className="text-xs font-semibold">

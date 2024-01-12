@@ -1,24 +1,22 @@
 "use client";
 
-import { ElementRef, useRef } from "react";
-import { toast } from "sonner";
-import { X } from "lucide-react";
-import { useRouter } from "next/navigation";
-
+import { createBoard } from "@/actions/create-board";
+import { Button } from "@/components/ui/button";
 import {
   Popover,
+  PopoverClose,
   PopoverContent,
   PopoverTrigger,
-  PopoverClose,
 } from "@/components/ui/popover";
 import { useAction } from "@/hooks/use-action";
-import { Button } from "@/components/ui/button";
-import { createBoard } from "@/actions/create-board";
 import { useProModal } from "@/hooks/use-pro-modal";
-
+import { X } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ElementRef, useRef } from "react";
+import { toast } from "sonner";
 import { FormInput } from "./form-input";
-import { FormSubmit } from "./form-submit";
 import { FormPicker } from "./form-picker";
+import { FormSubmit } from "./form-submit";
 
 interface FormPopoverProps {
   children: React.ReactNode;
@@ -86,7 +84,7 @@ export const FormPopover = ({
             />
             <FormInput
               id="title"
-              label="Board title"
+              label="Titulo"
               type="text"
               errors={fieldErrors}
             />

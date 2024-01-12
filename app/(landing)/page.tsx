@@ -1,7 +1,7 @@
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Medal } from "lucide-react";
 import localFont from "next/font/local";
+import Image from "next/image";
 import Link from "next/link";
 
 const headingFont = localFont({
@@ -14,23 +14,19 @@ const MarketingPage = () => {
       "flex items-center justify-center flex-col",
       headingFont.className,
     )}>
-      <div className="flex items-center justify-center flex-col ">
-        <div className="mb-6 flex items-center border shadow-sm p-4 px-6 bg-amber-200 text-amber-900 rounded-full uppercase bg-gradient-to-b from-yellow-200 to-yellow-500">
-          <Medal className="h-6 w-6 mr-2" />
-          La mejor herramienta
-        </div>
+      <div className="flex items-center justify-center flex-col">
 
-        <h1 className="text-3xl md:text-6xl text-center text-neutral-800 mb-6">
+        <h1 className="text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-yellow-300 to-yellow-600 bg-amber-300">
           Mejora tu productividad
         </h1>
-        
-        <div className="text-3xl md:text-6xl bg-gradient-to-r from-slate-500 via-blue-500 to-purple-600 text-white px-8 p-2 rounded-md pb-4 w-fit my-6">
+
+        <div className="flex items-center justify-center text-xl md:text-6xl bg-gradient-to-r from-slate-500 via-blue-500 to-purple-600 text-white px-8 py-3 rounded-md w-fit my-4 md:pb-5 pb-4">
           Organiza tus proyectos
         </div>
       </div>
 
-      <p className="text-base md:text-xl text-neutral-500 mt-10 max-w-xs md:max-w-2xl text-center mx-auto">
-        Colabora, gestiona proyectos y alcanza nuevos picos de productividad. Desde rascacielos hasta la oficina en casa, la forma en que trabaja su equipo es única: logre todo con TeamPilot.
+      <p className="text-base md:text-xl text-neutral-500 mt-3 text-center mx-auto text-pretty">
+        Colabora, gestiona proyectos y alcanza nuevos picos de productividad.
       </p>
 
       <Link
@@ -41,6 +37,22 @@ const MarketingPage = () => {
         href="/sign-up">
         Probar TeamPilot gratis
       </Link>
+
+      <Image
+        src="/screenshot.webp"
+        alt="Screenshot"
+        width={2000}
+        height={1008}
+        className="rounded-xl mt-10 max-w-sm sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
+      />
+
+      <Image
+        src="/screenshot2.webp"
+        alt="Screenshot"
+        width={2000}
+        height={1008}
+        className="rounded-xl mt-10 max-w-sm sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
+      />
 
     </div>
   );

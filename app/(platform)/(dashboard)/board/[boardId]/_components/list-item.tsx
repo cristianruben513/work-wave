@@ -15,10 +15,7 @@ interface ListItemProps {
   index: number;
 };
 
-export const ListItem = ({
-  data,
-  index,
-}: ListItemProps) => {
+export const ListItem = ({ data, index }: ListItemProps) => {
   const textareaRef = useRef<ElementRef<"textarea">>(null);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -37,16 +34,16 @@ export const ListItem = ({
   return (
     <Draggable draggableId={data.id} index={index}>
       {(provided) => (
-        <li 
+        <li
           {...provided.draggableProps}
           ref={provided.innerRef}
           className="shrink-0 h-full w-[272px] select-none"
         >
-          <div 
+          <div
             {...provided.dragHandleProps}
-            className="w-full rounded-md bg-[#f1f2f4] shadow-md pb-2"
+            className="w-full rounded-md bg-neutral-200 shadow-md pb-2"
           >
-            <ListHeader 
+            <ListHeader
               onAddCard={enableEditing}
               data={data}
             />

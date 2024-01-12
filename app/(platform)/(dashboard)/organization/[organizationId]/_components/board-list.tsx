@@ -34,7 +34,7 @@ export const BoardList = async () => {
         <User2 className="h-6 w-6 mr-2" />
         Tus tableros
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {boards.map((board) => (
           <Link
             key={board.id}
@@ -51,11 +51,11 @@ export const BoardList = async () => {
         <FormPopover sideOffset={10} side="right">
           <div
             role="button"
-            className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center transition shadow-2xl shadow-purple-300/40 border border-transparent hover:border-sky-200"
+            className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center transition shadow-2xl shadow-purple-300/40 border-2 border-sky-200/80"
           >
             <p className="text-sm">Crea un nuevo tablero</p>
             <span className="text-xs">
-              {isPro ? "Ilimitados" : `${MAX_FREE_BOARDS - availableCount} Restantes`}
+              {!isPro && `${MAX_FREE_BOARDS - availableCount} Restantes`}
             </span>
           </div>
         </FormPopover>
@@ -66,7 +66,7 @@ export const BoardList = async () => {
 
 BoardList.Skeleton = function SkeletonBoardList() {
   return (
-    <div className="grid gird-cols-2 sm:grid-cols-3 gap-4">
+    <div className="grid gird-cols-2 md:grid-cols-3 gap-4">
       <Skeleton className="aspect-video h-full w-full p-2" />
       <Skeleton className="aspect-video h-full w-full p-2" />
       <Skeleton className="aspect-video h-full w-full p-2" />
