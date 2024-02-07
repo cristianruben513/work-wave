@@ -1,22 +1,20 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
-import Image from "next/image";
 import {
-  Activity,
-  CreditCard,
   Layout,
-  Settings,
+  Settings
 } from "lucide-react";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
-import { cn } from "@/lib/utils";
-import { 
+import {
   AccordionContent,
-  AccordionItem, 
+  AccordionItem,
   AccordionTrigger
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 
 export type Organization = {
   id: string;
@@ -51,11 +49,6 @@ export const NavItem = ({
       label: "Configuración",
       icon: <Settings className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/settings`,
-    },
-    {
-      label: "Facturación",
-      icon: <CreditCard className="h-4 w-4 mr-2" />,
-      href: `/organization/${organization.id}/billing`,
     },
   ];
 

@@ -16,7 +16,7 @@ const MarketingPage = () => {
     )}>
       <div className="flex items-center justify-center flex-col">
 
-        <h1 className="text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-yellow-300 to-yellow-600 bg-amber-300">
+        <h1 className="text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-yellow-300 to-yellow-600 bg-amber-300 mb-5">
           Mejora tu productividad
         </h1>
 

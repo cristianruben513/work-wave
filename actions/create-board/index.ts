@@ -5,8 +5,6 @@ import { revalidatePath } from "next/cache";
 
 import { createSafeAction } from "@/lib/create-safe-action";
 import { db } from "@/lib/db";
-
-import { createAuditLog } from "@/lib/create-audit-log";
 import {
   hasAvailableCount,
   incrementAvailableCount
@@ -68,13 +66,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     if (!isPro) {
       await incrementAvailableCount();
     }
-
-    await createAuditLog({
-      entityTitle: board.title,
-      entityId: board.id,
-      entityType: ENTITY_TYPE.BOARD,
-      action: ACTION.CREATE,
-    })
+    
   } catch (error) {
     return {
       error: "Failed to create."

@@ -1,9 +1,9 @@
-import { Plus } from "lucide-react";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+import { Plus } from "lucide-react";
 
+import { FormPopover } from "@/components/form/form-popover";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { FormPopover } from "@/components/form/form-popover";
 
 import { MobileSidebar } from "./mobile-sidebar";
 
@@ -27,32 +27,26 @@ export const Navbar = () => {
         </FormPopover>
       </div>
       <div className="ml-auto flex items-center gap-x-2">
-        <OrganizationSwitcher
-          hidePersonal
-          afterCreateOrganizationUrl="/organization/:id"
-          afterLeaveOrganizationUrl="/select-org"
-          afterSelectOrganizationUrl="/organization/:id"
-          appearance={{
-            elements: {
-              rootBox: {
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+        <div className="border-2 border-amber-400 p-0.5 rounded-lg">
+          <OrganizationSwitcher
+            hidePersonal
+            afterCreateOrganizationUrl="/organization/:id"
+            afterLeaveOrganizationUrl="/select-org"
+            afterSelectOrganizationUrl="/organization/:id"
+            appearance={{
+              elements: {
+                rootBox: {
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                },
               },
-            },
-          }}
-        />
-        <UserButton
-          afterSignOutUrl="/"
-          appearance={{
-            elements: {
-              avatarBox: {
-                height: 30,
-                width: 30,
-              }
-            }
-          }}
-        />
+            }}
+          />
+        </div>
+        <div className="border-2 border-amber-400 p-0.5 rounded-full">
+          <UserButton afterSignOutUrl="/" />
+        </div>
       </div>
     </nav>
   );
