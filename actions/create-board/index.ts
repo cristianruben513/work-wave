@@ -1,16 +1,14 @@
 "use server";
 
-import { auth } from "@clerk/nextjs";
-import { revalidatePath } from "next/cache";
-
 import { createSafeAction } from "@/lib/create-safe-action";
 import { db } from "@/lib/db";
 import {
   hasAvailableCount,
   incrementAvailableCount
 } from "@/lib/org-limit";
-import { checkSubscription } from "@/lib/subscription";
-import { ACTION, ENTITY_TYPE } from "@prisma/client";
+import { auth } from "@clerk/nextjs";
+import { revalidatePath } from "next/cache";
+
 import { CreateBoard } from "./schema";
 import { InputType, ReturnType } from "./types";
 
@@ -24,11 +22,10 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   }
 
   const canCreate = await hasAvailableCount();
-  const isPro = await checkSubscription();
 
-  if (!canCreate && !isPro) {
+  if (!canCreate) {
     return {
-      error: "Has alcanzado tu límite de tableros gratuitos. Por favor, actualiza tu plan para crear más."
+      error: "Has alcanzado tu límite de tableros"
     }
   }
 
@@ -63,10 +60,8 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       }
     });
 
-    if (!isPro) {
-      await incrementAvailableCount();
-    }
-    
+    await incrementAvailableCount();
+
   } catch (error) {
     return {
       error: "Failed to create."

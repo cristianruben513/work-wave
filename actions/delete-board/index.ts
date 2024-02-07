@@ -1,14 +1,11 @@
 "use server";
 
+import { createSafeAction } from "@/lib/create-safe-action";
+import { db } from "@/lib/db";
+import { decreaseAvailableCount } from "@/lib/org-limit";
 import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-
-import { createSafeAction } from "@/lib/create-safe-action";
-import { db } from "@/lib/db";
-
-import { decreaseAvailableCount } from "@/lib/org-limit";
-import { checkSubscription } from "@/lib/subscription";
 import { DeleteBoard } from "./schema";
 import { InputType, ReturnType } from "./types";
 
@@ -21,8 +18,6 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  const isPro = await checkSubscription();
-
   const { id } = data;
   let board;
 
@@ -34,9 +29,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       },
     });
 
-    if (!isPro) {
-      await decreaseAvailableCount();
-    }
+    await decreaseAvailableCount();
 
   } catch (error) {
     return {

@@ -7,9 +7,12 @@ import { Toaster } from "sonner";
 
 const PlatformLayout = ({ children }: { children: React.ReactNode; }) => {
   return (
-    <ClerkProvider localization={esES} appearance={{ baseTheme: shadesOfPurple }}>
+    <ClerkProvider
+      localization={esES}
+      appearance={{ baseTheme: shadesOfPurple }}
+    >
       <QueryProvider>
-        <Toaster />
+        <Toaster position="top-center" richColors />
         <ModalProvider />
         {children}
       </QueryProvider>

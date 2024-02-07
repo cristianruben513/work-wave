@@ -13,7 +13,6 @@ Key Features:
 - Card creation
 - Card description, rename, delete, drag & drop reorder and copy
 - Board limit for every organization
-- Stripe subscription for each organization to unlock unlimited boards
 - Landing page
 - MySQL DB
 - Prisma ORM

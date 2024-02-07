@@ -8,7 +8,7 @@ interface UseActionOptions<TOutput> {
   onSuccess?: (data: TOutput) => void;
   onError?: (error: string) => void;
   onComplete?: () => void;
-};
+};  
 
 export const useAction = <TInput, TOutput> (
   action: Action<TInput, TOutput>,
@@ -28,9 +28,7 @@ export const useAction = <TInput, TOutput> (
       try {
         const result = await action(input);
 
-        if (!result) {
-          return;
-        }
+        if (!result) return
 
         setFieldErrors(result.fieldErrors);
 
@@ -43,6 +41,7 @@ export const useAction = <TInput, TOutput> (
           setData(result.data);
           options.onSuccess?.(result.data);
         }
+        
       } finally {
         setIsLoading(false);
         options.onComplete?.();
