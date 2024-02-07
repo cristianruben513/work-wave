@@ -11,7 +11,7 @@ export const Info = () => {
 
   return (
     <div className="flex items-center gap-x-4 bg-sky-400/10 p-4 backdrop-blur-sm rounded-md">
-      <div className="w-[60px] h-[60px] relative">
+      <div className="size-[40px] relative">
         <Image
           fill
           src={organization?.imageUrl!}
@@ -31,7 +31,7 @@ export const Info = () => {
 Info.Skeleton = function SkeletonInfo() {
   return (
     <div className="flex items-center gap-x-4">
-      <div className="w-[60px] h-[60px] relative">
+      <div className="size-[40px] relative">
         <Skeleton className="w-full h-full absolute" />
       </div>
       <div className="space-y-2">

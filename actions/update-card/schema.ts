@@ -12,8 +12,8 @@ export const UpdateCard = z.object({
   ),
   title: z.optional(
     z.string({
-      required_error: "Title is required",
-      invalid_type_error: "Title is required",
+      required_error: "Titulo requerido",
+      invalid_type_error: "Titulo requerido",
     }).min(3, {
       message: "Title is too short",
     })
