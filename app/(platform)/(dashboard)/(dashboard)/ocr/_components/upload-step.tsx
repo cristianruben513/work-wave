@@ -51,7 +51,7 @@ export default function UploadStep() {
   })
 
   return (
-    <div className="h-full w-full flex flex-col gap-5 justify-center items-center">
+    <div className="w-full flex flex-col gap-5 justify-center items-center">
       <form className="w-full md:w-7/12" onSubmit={handleSubmit}>
         <div
           className={cn(
