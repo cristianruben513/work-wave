@@ -4,6 +4,7 @@ import { FormPopover } from "@/components/form/form-popover";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { MobileSidebar } from "./mobile-sidebar";
+import { ModeToggle } from "@/components/mode-toogle";
 
 export const Navbar = () => {
   return (
@@ -34,6 +35,7 @@ export const Navbar = () => {
         </FormPopover>
       </div>
       <div className="ml-auto flex items-center gap-x-2">
+        <ModeToggle />
         <div className="border-2 border-amber-400 p-0.5 rounded-lg">
           <OrganizationSwitcher
             hidePersonal
