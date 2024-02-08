@@ -1,6 +1,6 @@
-import { Sidebar } from "../_components/sidebar";
+import { Sidebar } from "../_components/sidebar"
 
-export default function OrganizationLayout({ children }: { children: React.ReactNode }) {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <main className="md:pt-24 pt-20 md:px-16 px-6 max-w-8xl 2xl:max-w-screen-xl mx-auto">
       <div className="flex gap-x-7">
@@ -10,5 +10,5 @@ export default function OrganizationLayout({ children }: { children: React.React
         {children}
       </div>
     </main>
-  );
-};
+  )
+}

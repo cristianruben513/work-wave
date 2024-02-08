@@ -2,8 +2,8 @@
 
 import { useFormStatus } from "react-dom";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface FormSubmitProps {
   children: React.ReactNode;
@@ -26,7 +26,10 @@ export const FormSubmit = ({
       type="submit"
       variant={variant}
       size="sm"
-      className={cn(className)}
+      className={cn(
+        "rounded-lg border-2 border-sky-400",
+        className
+      )}
     >
       {children}
     </Button>

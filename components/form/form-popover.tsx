@@ -87,7 +87,7 @@ export const FormPopover = ({
             />
           </div>
           <FormSubmit className="w-full">
-            Create
+            Crear
           </FormSubmit>
         </form>
       </PopoverContent>

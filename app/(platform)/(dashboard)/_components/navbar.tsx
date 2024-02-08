@@ -1,10 +1,8 @@
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Plus } from "lucide-react";
-
 import { FormPopover } from "@/components/form/form-popover";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
-
 import { MobileSidebar } from "./mobile-sidebar";
 
 export const Navbar = () => {

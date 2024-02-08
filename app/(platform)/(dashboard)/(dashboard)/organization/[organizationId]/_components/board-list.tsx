@@ -44,7 +44,7 @@ export const BoardList = async () => {
           className="aspect-video relative h-full w-full bg-muted rounded-xl flex flex-col gap-y-1 items-center justify-center transition shadow-2xl shadow-purple-300/60 border-4 border-sky-200/80 hover:shadow-purple-400/70"
         >
           <p className="text-base font-semibold">Crea un nuevo tablero</p>
-          <span className="text-xs text-green-700">
+          <span className="text-xs text-green-700 dark:text-green-400">
             {`${MAX_FREE_BOARDS - availableCount} Restantes`}
           </span>
         </div>
