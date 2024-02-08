@@ -16,12 +16,20 @@ export const Navbar = () => {
           <Logo />
         </div>
         <FormPopover align="start" side="bottom" sideOffset={18}>
-          <Button variant="primary" size="sm" className="rounded-sm hidden md:block h-auto  py-1.5 px-2">
+          <Button
+            variant="primary"
+            size="sm"
+            className="rounded-lg hidden md:block h-auto py-1.5 px-2 border-2 border-sky-400"
+          >
             Crear tablero
           </Button>
         </FormPopover>
         <FormPopover>
-          <Button variant="primary" size="sm" className="rounded-sm block md:hidden">
+          <Button
+            variant="primary"
+            size="sm"
+            className="rounded-lg block md:hidden border-2 border-sky-400"
+          >
             <Plus className="h-4 w-4" />
           </Button>
         </FormPopover>

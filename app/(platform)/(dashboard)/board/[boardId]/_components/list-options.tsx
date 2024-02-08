@@ -1,32 +1,28 @@
 "use client";
 
-import { toast } from "sonner";
-import { List } from "@prisma/client";
-import { ElementRef, useRef } from "react";
-import { MoreHorizontal, X } from "lucide-react";
-
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  PopoverClose
-} from "@/components/ui/popover";
-import { useAction } from "@/hooks/use-action";
-import { Button } from "@/components/ui/button";
 import { copyList } from "@/actions/copy-list";
 import { deleteList } from "@/actions/delete-list";
 import { FormSubmit } from "@/components/form/form-submit";
+import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverClose,
+  PopoverContent,
+  PopoverTrigger
+} from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
+import { useAction } from "@/hooks/use-action";
+import { List } from "@prisma/client";
+import { MoreHorizontal, X } from "lucide-react";
+import { ElementRef, useRef } from "react";
+import { toast } from "sonner";
 
 interface ListOptionsProps {
   data: List;
   onAddCard: () => void;
 };
 
-export const ListOptions = ({
-  data,
-  onAddCard,
-}: ListOptionsProps) => {
+export const ListOptions = ({ data, onAddCard, }: ListOptionsProps) => {
   const closeRef = useRef<ElementRef<"button">>(null);
 
   const { execute: executeDelete } = useAction(deleteList, {

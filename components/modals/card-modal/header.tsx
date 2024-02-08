@@ -1,16 +1,15 @@
 "use client";
 
-import { toast } from "sonner";
-import { ElementRef, useRef, useState } from "react";
+import { updateCard } from "@/actions/update-card";
+import { FormInput } from "@/components/form/form-input";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useAction } from "@/hooks/use-action";
+import { CardWithList } from "@/types";
+import { useQueryClient } from "@tanstack/react-query";
 import { Layout } from "lucide-react";
 import { useParams } from "next/navigation";
-import { useQueryClient } from "@tanstack/react-query";
-
-import { CardWithList } from "@/types";
-import { useAction } from "@/hooks/use-action";
-import { updateCard } from "@/actions/update-card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { FormInput } from "@/components/form/form-input";
+import { ElementRef, useRef, useState } from "react";
+import { toast } from "sonner";
 
 interface HeaderProps {
   data: CardWithList;
@@ -76,8 +75,8 @@ export const Header = ({
             className="font-semibold text-xl px-1 text-neutral-700 bg-transparent border-transparent relative -left-1.5 w-[95%] focus-visible:bg-white focus-visible:border-input mb-0.5 truncate"
           />
         </form>
-        <p className="text-sm text-muted-foreground">
-          in list <span className="underline">{data.list.title}</span>
+        <p className="text-sm text-muted-foregroundmt-1">
+          Elemento de <span className="underline">{data.list.title}</span>
         </p>
       </div>
     </div>

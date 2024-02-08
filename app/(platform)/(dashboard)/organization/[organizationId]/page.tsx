@@ -7,7 +7,7 @@ const OrganizationIdPage = async () => {
     <div className="w-full mb-20">
       <Info />
 
-      <div className="px-2 md:px-4 mt-8">
+      <div className="mt-4">
         <Suspense fallback={<BoardList.Skeleton />}>
           <BoardList />
         </Suspense>

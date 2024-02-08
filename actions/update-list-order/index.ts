@@ -1,11 +1,9 @@
 "use server";
 
+import { createSafeAction } from "@/lib/create-safe-action";
+import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
-
-import { db } from "@/lib/db";
-import { createSafeAction } from "@/lib/create-safe-action";
-
 import { UpdateListOrder } from "./schema";
 import { InputType, ReturnType } from "./types";
 
@@ -22,7 +20,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   let lists;
 
   try {
-    const transaction = items.map((list) => 
+    const transaction = items.map((list) =>
       db.list.update({
         where: {
           id: list.id,

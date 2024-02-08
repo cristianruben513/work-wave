@@ -62,7 +62,7 @@ export const Sidebar = ({ storageKey = "t-sidebar-state", }: SidebarProps) => {
   }
 
   return (
-    <div className="rounded-md bg-neutral-300/30 backdrop-blur-lg p-3 min-h-[calc(100vh-128px)]">
+    <div className="rounded-xl bg-neutral-300/30 backdrop-blur-lg p-3 min-h-[calc(100vh-128px)] border-4 border-neutral-300/40">
       <div className="font-medium text-xs flex items-center mb-1">
         <span className="pl-4">
           Workspaces

@@ -6,11 +6,7 @@ import { BoardNavbar } from "./_components/board-navbar";
 export async function generateMetadata({ params }: { params: { boardId: string; }; }) {
   const { orgId } = auth();
 
-  if (!orgId) {
-    return {
-      title: "Board",
-    };
-  }
+  if (!orgId) return { title: "Board" }
 
   const board = await db.board.findUnique({
     where: {
@@ -19,9 +15,7 @@ export async function generateMetadata({ params }: { params: { boardId: string; 
     }
   });
 
-  return {
-    title: board?.title || "Board",
-  };
+  return { title: board?.title || "Board" }
 }
 
 const BoardIdLayout = async ({
@@ -54,7 +48,7 @@ const BoardIdLayout = async ({
       style={{ backgroundImage: `url(${board.imageFullUrl})` }}
     >
       <BoardNavbar data={board} />
-      <div className="absolute inset-0 bg-black/10" />
+      <div className="absolute inset-0 bg-black/20" />
       <main className="relative pt-28 h-full">
         {children}
       </main>

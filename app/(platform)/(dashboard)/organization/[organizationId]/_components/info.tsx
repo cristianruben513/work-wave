@@ -10,7 +10,7 @@ export const Info = () => {
   if (!isLoaded) return <Info.Skeleton />;
 
   return (
-    <div className="flex items-center gap-x-4 bg-sky-400/10 p-4 backdrop-blur-sm rounded-md">
+    <div className="flex items-center gap-x-4 bg-sky-400/20 p-4 backdrop-blur-sm rounded-xl border-4 border-sky-400/20">
       <div className="size-[40px] relative">
         <Image
           fill
@@ -30,16 +30,12 @@ export const Info = () => {
 
 Info.Skeleton = function SkeletonInfo() {
   return (
-    <div className="flex items-center gap-x-4">
+    <div className="flex items-center gap-x-4 rounded-xl border-4 p-4">
       <div className="size-[40px] relative">
         <Skeleton className="w-full h-full absolute" />
       </div>
       <div className="space-y-2">
         <Skeleton className="h-10 w-[200px]" />
-        <div className="flex items-center">
-          <Skeleton className="h-4 w-4 mr-2" />
-          <Skeleton className="h-4 w-[100px]" />
-        </div>
       </div>
     </div>
   );

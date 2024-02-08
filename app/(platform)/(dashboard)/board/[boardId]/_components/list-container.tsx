@@ -45,17 +45,13 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
   const onDragEnd = (result: any) => {
     const { destination, source, type } = result;
 
-    if (!destination) {
-      return;
-    }
+    if (!destination) return;
 
     // if dropped in the same position
     if (
       destination.droppableId === source.droppableId &&
       destination.index === source.index
-    ) {
-      return;
-    }
+    ) return;
 
     // User moves a list
     if (type === "list") {
@@ -77,9 +73,7 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
       const sourceList = newOrderedData.find(list => list.id === source.droppableId);
       const destList = newOrderedData.find(list => list.id === destination.droppableId);
 
-      if (!sourceList || !destList) {
-        return;
-      }
+      if (!sourceList || !destList) return;
 
       // Check if cards exists on the sourceList
       if (!sourceList.cards) {
@@ -146,17 +140,15 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
           <ol
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className="flex gap-x-3 h-full"
+            className="flex gap-x-5 h-full"
           >
-            {orderedData.map((list, index) => {
-              return (
-                <ListItem
-                  key={list.id}
-                  index={index}
-                  data={list}
-                />
-              )
-            })}
+            {orderedData.map((list, index) => (
+              <ListItem
+                key={list.id}
+                index={index}
+                data={list}
+              />
+            ))}
             {provided.placeholder}
             <ListForm />
             <div className="flex-shrink-0 w-1" />

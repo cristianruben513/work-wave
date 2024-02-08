@@ -1,13 +1,13 @@
 "use client";
 
-import { toast } from "sonner";
 import { List } from "@prisma/client";
+import { ElementRef, useRef, useState } from "react";
+import { toast } from "sonner";
 import { useEventListener } from "usehooks-ts";
-import { useState, useRef, ElementRef } from "react";
 
-import { useAction } from "@/hooks/use-action";
 import { updateList } from "@/actions/update-list";
 import { FormInput } from "@/components/form/form-input";
+import { useAction } from "@/hooks/use-action";
 
 import { ListOptions } from "./list-options";
 
@@ -16,10 +16,7 @@ interface ListHeaderProps {
   onAddCard: () => void;
 };
 
-export const ListHeader = ({
-  data,
-  onAddCard,
-}: ListHeaderProps) => {
+export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
   const [title, setTitle] = useState(data.title);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -80,9 +77,9 @@ export const ListHeader = ({
   return (
     <div className="pt-2 px-2 text-sm font-semibold flex justify-between items-start- gap-x-2">
       {isEditing ? (
-        <form 
+        <form
           ref={formRef}
-          action={handleSubmit}  
+          action={handleSubmit}
           className="flex-1 px-[2px]"
         >
           <input hidden id="id" name="id" value={data.id} />
