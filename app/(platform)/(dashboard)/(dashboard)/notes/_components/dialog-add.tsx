@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { useNotesStore } from "@/stores/notes-store"
-import { FileWarning, PlusIcon } from "lucide-react"
+import { AlertTriangle, PlusIcon } from "lucide-react"
 import { useEffect, useState } from "react"
 import { toast } from "sonner"
 
@@ -106,7 +106,7 @@ export default function DialogAddNote() {
         </div>
         {error && (
           <div className="flex items-center justify-end">
-            <FileWarning className="size-4 mr-2 text-red-500" />
+            <AlertTriangle className="size-4 mr-2 text-red-500" />
             <p className="text-red-500 text-sm">
               Necesitas ingresar un título y una descripción.
             </p>

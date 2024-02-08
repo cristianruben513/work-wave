@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { useToDoStore } from "@/stores/todo-store"
-import { FileWarning, LoaderIcon, PlusIcon } from "lucide-react"
+import { AlertTriangle, LoaderIcon, PlusIcon } from "lucide-react"
 import { useEffect, useState } from "react"
 import { toast } from "sonner"
 
@@ -78,7 +78,7 @@ export default function DialogAddToDo() {
         </div>
         {error && (
           <div className="flex items-center justify-end">
-            <FileWarning className="size-4 mr-2 text-red-500" />
+            <AlertTriangle className="size-4 mr-2 text-red-500" />
             <p className="text-red-500 text-sm">
               Necesitas ingresar un título
             </p>

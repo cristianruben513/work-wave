@@ -8,7 +8,7 @@ import { ModeToggle } from "@/components/mode-toogle";
 
 export const Navbar = () => {
   return (
-    <nav className="fixed z-50 top-0 px-4 w-full h-16 shadow-xl shadow-neutral-600/10 bg-white flex items-center">
+    <nav className="fixed z-50 top-0 px-4 w-full h-16 shadow-xl shadow-neutral-600/10 bg-white dark:bg-neutral-900 flex items-center">
       <MobileSidebar />
       <div className="flex items-center gap-x-4">
         <div className="hidden md:flex">
@@ -18,7 +18,7 @@ export const Navbar = () => {
           <Button
             variant="primary"
             size="sm"
-            className="rounded-lg hidden md:flex h-auto py-1.5 px-2 border-2 border-sky-400 items-center gap-x-1"
+            className="rounded-lg hidden md:flex h-auto py-1.5 px-2 border-2 border-sky-400 items-center gap-x-1 dark:text-white"
           >
             Crear tablero
             <Plus className="h-4 w-4" />
@@ -36,7 +36,7 @@ export const Navbar = () => {
       </div>
       <div className="ml-auto flex items-center gap-x-2">
         <ModeToggle />
-        <div className="border-2 border-amber-400 p-0.5 rounded-lg">
+        <div className="border-2 border-amber-400 dark:border-yellow-700 p-0.5 rounded-lg">
           <OrganizationSwitcher
             hidePersonal
             afterCreateOrganizationUrl="/organization/:id"
@@ -53,7 +53,7 @@ export const Navbar = () => {
             }}
           />
         </div>
-        <div className="border-2 border-amber-400 p-0.5 rounded-full">
+        <div className="border-2 border-amber-400 dark:border-yellow-700 p-0.5 rounded-full">
           <UserButton afterSignOutUrl="/" />
         </div>
       </div>

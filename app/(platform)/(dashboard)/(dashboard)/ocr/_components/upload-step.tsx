@@ -52,7 +52,7 @@ export default function UploadStep() {
 
   return (
     <div className="w-full flex flex-col gap-5 justify-center items-center">
-      <form className="w-full md:w-7/12" onSubmit={handleSubmit}>
+      <form className="w-full md:w-7/12 p-6" onSubmit={handleSubmit}>
         <div
           className={cn(
             "p-10 w-full h-72 py-5 border-4 border-dotted bg-white/60 backdrop-blur-lg  rounded-xl flex flex-col gap-3 justify-center items-center cursor-pointer transition-transform duration-300",

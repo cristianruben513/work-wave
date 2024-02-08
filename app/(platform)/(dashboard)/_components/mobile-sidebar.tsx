@@ -43,11 +43,9 @@ export const MobileSidebar = () => {
       <Sheet open={isOpen} onOpenChange={onClose}>
         <SheetContent
           side="left"
-          className="p-2 pt-10"
+          className="p-2 pt-10 w-[60%]"
         >
-          <Sidebar
-            storageKey="t-sidebar-mobile-state"
-          />
+          <Sidebar storageKey="t-sidebar-mobile-state" />
         </SheetContent>
       </Sheet>
     </>
