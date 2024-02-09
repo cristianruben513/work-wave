@@ -18,7 +18,7 @@ export const Navbar = () => {
           <Button
             variant="primary"
             size="sm"
-            className="rounded-lg hidden md:flex h-auto py-1.5 px-2 border-2 border-sky-400 items-center gap-x-1 dark:text-white"
+            className="rounded-lg hidden md:flex h-auto py-1.5 px-2 border-2 border-sky-400 dark:border-sky-600 items-center gap-x-1 dark:text-white"
           >
             Crear tablero
             <Plus className="h-4 w-4" />
@@ -28,7 +28,7 @@ export const Navbar = () => {
           <Button
             variant="primary"
             size="sm"
-            className="rounded-lg block md:hidden border-2 border-sky-400"
+            className="rounded-lg block md:hidden border-2 border-sky-400 dark:border-sky-600"
           >
             <Plus className="h-4 w-4" />
           </Button>

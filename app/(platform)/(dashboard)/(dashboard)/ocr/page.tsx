@@ -14,7 +14,7 @@ export default function TextRecognitionPage() {
     <div className="h-full flex flex-col gap-4">
       <Info title="Reconocimiento de texto" />
 
-      <div className="flex justify-center items-center rounded-xl backdrop-blur-[1px] border-4 border-neutral-300/60 bg-neutral-200/30 flex-1">
+      <div className="flex justify-center items-center rounded-xl backdrop-blur-[1px] border-4 border-neutral-300/60 dark:border-neutral-700/40 bg-neutral-200/30 dark:bg-neutral-800/40 flex-1">
         {status === APP_STATUS.UPLOAD && (
           <UploadStep />
         )}

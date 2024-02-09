@@ -10,7 +10,7 @@ export const Info = () => {
   if (!isLoaded) return <Info.Skeleton />;
 
   return (
-    <div className="flex items-center gap-x-4 bg-sky-400/20 p-4 backdrop-blur-sm rounded-xl border-4 border-sky-400/20">
+    <div className="flex items-center gap-x-4 bg-sky-400/20 dark:bg-sky-900/30 p-4 backdrop-blur-sm rounded-xl border-4 border-sky-400/20 dark:border-sky-600/10">
       <div className="size-[40px] relative">
         <Image
           fill

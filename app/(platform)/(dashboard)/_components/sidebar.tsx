@@ -81,7 +81,7 @@ export const Sidebar = ({ storageKey = "t-sidebar-state", }: SidebarProps) => {
   }
 
   return (
-    <div className="rounded-xl md:bg-neutral-300/30 backdrop-blur-lg p-3 min-h-[calc(100vh-128px)] md:border-4 md:border-neutral-300/40">
+    <div className="rounded-xl md:bg-neutral-300/30 md:dark:bg-neutral-800 backdrop-blur-lg p-3 min-h-[calc(100vh-128px)] md:border-4 md:border-neutral-300/40 md:dark:border-neutral-700/40">
 
       <div className="flex flex-col gap-2 mb-2">
         {routes.map((route, index) => {
@@ -92,8 +92,8 @@ export const Sidebar = ({ storageKey = "t-sidebar-state", }: SidebarProps) => {
               key={index}
               href={route?.href as string}
               className={cn(
-                "flex items-center p-2.5 text-neutral-700 rounded-md hover:bg-neutral-500/20 transition text-start font-medium text-sm bg-neutral-500/10",
-                isActive && "bg-sky-500/20 text-sky-700"
+                "flex items-center p-2.5 text-neutral-700 dark:text-neutral-300 rounded-md hover:bg-neutral-500/20 transition text-start font-medium text-sm bg-neutral-500/10",
+                isActive && "bg-sky-500/20 dark:bg-sky-800/30 text-sky-700 dark:text-sky-300"
               )}
             >
               {route?.icon}

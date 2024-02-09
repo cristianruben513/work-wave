@@ -27,7 +27,7 @@ export const FormSubmit = ({
       variant={variant}
       size="sm"
       className={cn(
-        "rounded-lg border-2 border-sky-400",
+        "rounded-lg border-2 border-sky-400 dark:border-sky-700 dark:text-neutral-200 dark:bg-sky-900 bg-sky-700",
         className
       )}
     >

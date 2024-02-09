@@ -21,7 +21,7 @@ export default function TodoItem({ todo, handleDelete, handleComplete }: Props) 
   return (
     <ContextMenu>
       <ContextMenuTrigger>
-        <Card className="bg-white/60 h-full backdrop-blur-[1px]">
+        <Card className="h-full backdrop-blur-[1px]">
           <CardHeader>
             <div className="flex items-center gap-5">
               <Checkbox

@@ -41,7 +41,7 @@ export const ListItem = ({ data, index }: ListItemProps) => {
         >
           <div
             {...provided.dragHandleProps}
-            className="w-full rounded-md bg-neutral-200 shadow-md pb-2"
+            className="w-full rounded-md bg-neutral-200 dark:bg-neutral-700 shadow-md pb-2"
           >
             <ListHeader
               onAddCard={enableEditing}

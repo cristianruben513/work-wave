@@ -67,7 +67,7 @@ export const ListOptions = ({ data, onAddCard, }: ListOptionsProps) => {
         </Button>
       </PopoverTrigger>
       <PopoverContent className="px-0 pt-3 pb-3" side="bottom" align="start">
-        <div className="text-sm font-medium text-center text-neutral-600 pb-4">
+        <div className="text-sm font-medium text-center text-neutral-600 dark:text-neutral-300 pb-4">
           Acciones
         </div>
         <PopoverClose ref={closeRef} asChild>
@@ -87,7 +87,7 @@ export const ListOptions = ({ data, onAddCard, }: ListOptionsProps) => {
           <input hidden name="boardId" id="boardId" value={data.boardId} />
           <FormSubmit
             variant="ghost"
-            className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+            className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm dark:bg-neutral-800 border-none"
           >
             Copiar esta lista
           </FormSubmit>
@@ -100,7 +100,7 @@ export const ListOptions = ({ data, onAddCard, }: ListOptionsProps) => {
           <input hidden name="boardId" id="boardId" value={data.boardId} />
           <FormSubmit
             variant="ghost"
-            className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+            className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm border-none dark:bg-neutral-800"
           >
             Eliminar esta lista
           </FormSubmit>

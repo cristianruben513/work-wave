@@ -70,7 +70,7 @@ export const ListForm = () => {
         <form
           action={onSubmit}
           ref={formRef}
-          className="w-full p-3 rounded-md bg-white space-y-4 shadow-md"
+          className="w-full p-3 rounded-md bg-white dark:bg-neutral-700 space-y-4 shadow-md"
         >
           <FormInput
             ref={inputRef}
@@ -88,7 +88,7 @@ export const ListForm = () => {
             <FormSubmit>
               Añadir lista
             </FormSubmit>
-            <Button 
+            <Button
               onClick={disableEditing}
               size="sm"
               variant="ghost"
@@ -105,7 +105,7 @@ export const ListForm = () => {
     <ListWrapper>
       <button
         onClick={enableEditing}
-        className="w-full rounded-md bg-neutral-200/60 backdrop-blur-sm hover:bg-white/50 transition p-3 flex items-center font-medium text-sm"
+        className="w-full rounded-md bg-neutral-200/60 dark:bg-neutral-600/70 backdrop-blur-sm hover:bg-white/50 transition p-3 flex items-center font-medium text-sm"
       >
         <Plus className="h-4 w-4 mr-2" />
         Agrega una lista

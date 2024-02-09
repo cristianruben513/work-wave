@@ -3,9 +3,9 @@
 import { forwardRef } from "react";
 import { useFormStatus } from "react-dom";
 
-import { cn } from "@/lib/utils";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 
 import { FormErrors } from "./form-errors";
 
@@ -39,14 +39,14 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
   return (
     <div className="space-y-2">
       <div className="space-y-1">
-        {label ? (
-          <Label 
+        {label && (
+          <Label
             htmlFor={id}
-            className="text-xs font-semibold text-neutral-700"
+            className="text-xs font-semibold text-neutral-700 dark:text-neutral-400"
           >
             {label}
           </Label>
-        ) : null}
+        )}
         <Input
           onBlur={onBlur}
           defaultValue={defaultValue}

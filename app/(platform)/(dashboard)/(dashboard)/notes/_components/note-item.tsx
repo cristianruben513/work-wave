@@ -20,7 +20,7 @@ export default function NoteItem({ note, handlerDelete }: Props) {
   return (
     <ContextMenu>
       <ContextMenuTrigger>
-        <Card className="bg-white/60 h-full backdrop-blur-[1px]">
+        <Card className="h-full backdrop-blur-[1px]">
           <CardHeader className="-mt-2">
             <CardTitle className="text-lg">{note.title}</CardTitle>
           </CardHeader>

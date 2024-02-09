@@ -90,7 +90,11 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
           <FormSubmit>
             Añadir tarjeta
           </FormSubmit>
-          <Button onClick={disableEditing} size="sm" variant="ghost">
+          <Button onClick={disableEditing}
+            size="sm"
+            variant="ghost"
+            className="bg-red-900 rounded-xl hover:bg-red-900/80"
+          >
             <X className="h-5 w-5" />
           </Button>
         </div>
@@ -102,7 +106,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
     <div className="pt-2 px-2">
       <Button
         onClick={enableEditing}
-        className="h-auto px-2 py-1.5 w-full justify-start text-neutral-800 text-sm hover:bg-black/10"
+        className="h-auto px-2 py-1.5 w-full justify-start text-neutral-800 dark:text-neutral-400 text-sm hover:bg-black/10"
         size="sm"
         variant="ghost"
       >
