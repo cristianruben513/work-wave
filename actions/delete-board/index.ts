@@ -1,25 +1,24 @@
-"use server";
+"use server"
 
-import { createSafeAction } from "@/lib/create-safe-action";
-import { db } from "@/lib/db";
-import { decreaseAvailableCount } from "@/lib/org-limit";
-import { auth } from "@clerk/nextjs";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import { DeleteBoard } from "./schema";
-import { InputType, ReturnType } from "./types";
+import { createSafeAction } from "@/lib/create-safe-action"
+import { db } from "@/lib/db"
+import { auth } from "@clerk/nextjs"
+import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation"
+import { DeleteBoard } from "./schema"
+import { InputType, ReturnType } from "./types"
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  const { userId, orgId } = auth();
+  const { userId, orgId } = auth()
 
   if (!userId || !orgId) {
     return {
       error: "Unauthorized",
-    };
+    }
   }
 
-  const { id } = data;
-  let board;
+  const { id } = data
+  let board
 
   try {
     board = await db.board.delete({
@@ -27,18 +26,15 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         id,
         orgId,
       },
-    });
-
-    await decreaseAvailableCount();
-
+    })
   } catch (error) {
     return {
-      error: "Failed to delete."
+      error: "Failed to delete.",
     }
   }
 
-  revalidatePath(`/organization/${orgId}`);
-  redirect(`/organization/${orgId}`);
-};
+  revalidatePath(`/organization/${orgId}`)
+  redirect(`/organization/${orgId}`)
+}
 
-export const deleteBoard = createSafeAction(DeleteBoard, handler);
+export const deleteBoard = createSafeAction(DeleteBoard, handler)

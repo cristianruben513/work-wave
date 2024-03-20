@@ -1,9 +1,8 @@
 "use client";
 
-import { defaultImages } from "@/constants/images";
 import { unsplash } from "@/lib/unsplash";
 import { cn } from "@/lib/utils";
-import { Check, Loader2 } from "lucide-react";
+import { Check, FileWarningIcon, Loader2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
@@ -16,8 +15,7 @@ interface FormPickerProps {
 
 export const FormPicker = ({ id, errors, }: FormPickerProps) => {
   const { pending } = useFormStatus();
-
-  const [images, setImages] = useState<Array<Record<string, any>>>(defaultImages);
+  const [images, setImages] = useState<Array<Record<string, any>> | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedImageId, setSelectedImageId] = useState(null);
 
@@ -30,15 +28,10 @@ export const FormPicker = ({ id, errors, }: FormPickerProps) => {
           count: 9,
         });
 
-        if (result && result.response) {
-          const newImages = (result.response as Array<Record<string, any>>);
-          setImages(newImages);
-        } else {
-          console.error("Error al cargar las imágenes");
-        }
+        const newImages = (result.response as Array<Record<string, any>>);
+        setImages(newImages);
       } catch (error) {
-        console.log(error);
-        setImages(defaultImages);
+        setImages(null);
       } finally {
         setIsLoading(false);
       }
@@ -46,6 +39,14 @@ export const FormPicker = ({ id, errors, }: FormPickerProps) => {
 
     fetchImages();
   }, []);
+
+  if (!images) {
+    return (
+      <div className="p-6 flex items-center justify-center">
+        <FileWarningIcon className="h-6 w-6 text-red-700" />
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (

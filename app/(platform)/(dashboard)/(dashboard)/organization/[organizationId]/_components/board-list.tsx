@@ -1,8 +1,6 @@
 import { FormPopover } from "@/components/form/form-popover";
 import { Skeleton } from "@/components/ui/skeleton";
-import { MAX_FREE_BOARDS } from "@/constants/boards";
 import { db } from "@/lib/db";
-import { getAvailableCount } from "@/lib/org-limit";
 import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -20,8 +18,6 @@ export const BoardList = async () => {
       createdAt: "desc"
     }
   });
-
-  const availableCount = await getAvailableCount();
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -43,10 +39,7 @@ export const BoardList = async () => {
           role="button"
           className="aspect-video relative h-full w-full bg-muted rounded-xl flex flex-col gap-y-1 items-center justify-center transition shadow-2xl shadow-purple-300/60 dark:shadow-purple-600/20 border-4 border-sky-200/80 dark:border-sky-700/20 hover:shadow-purple-400/70 dark:hover:shadow-purple-500/20"
         >
-          <p className="text-base font-semibold">Crea un nuevo tablero</p>
-          <span className="text-xs text-green-700 dark:text-green-400">
-            {`${MAX_FREE_BOARDS - availableCount} Restantes`}
-          </span>
+          <p className="text-base text-center font-semibold">Crea un nuevo tablero</p>
         </div>
       </FormPopover>
     </div>

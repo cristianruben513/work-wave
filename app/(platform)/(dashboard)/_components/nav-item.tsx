@@ -1,13 +1,6 @@
 "use client";
 
 import {
-  Layout,
-  Settings
-} from "lucide-react";
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
-
-import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
@@ -15,6 +8,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import { Layout, Settings } from "lucide-react";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
 export type Organization = {
   id: string;

@@ -100,7 +100,7 @@ export const ListOptions = ({ data, onAddCard, }: ListOptionsProps) => {
           <input hidden name="boardId" id="boardId" value={data.boardId} />
           <FormSubmit
             variant="ghost"
-            className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm border-none dark:bg-neutral-800"
+            className="w-full h-auto p-2 px-5 justify-start font-normal text-sm border-none dark:bg-neutral-800"
           >
             Eliminar esta lista
           </FormSubmit>

@@ -36,23 +36,6 @@ export const Navbar = () => {
       </div>
       <div className="ml-auto flex items-center gap-x-2">
         <ModeToggle />
-        <div className="border-2 border-amber-400 dark:border-yellow-700 p-0.5 rounded-lg">
-          <OrganizationSwitcher
-            hidePersonal
-            afterCreateOrganizationUrl="/organization/:id"
-            afterLeaveOrganizationUrl="/select-org"
-            afterSelectOrganizationUrl="/organization/:id"
-            appearance={{
-              elements: {
-                rootBox: {
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                },
-              },
-            }}
-          />
-        </div>
         <div className="border-2 border-amber-400 dark:border-yellow-700 p-0.5 rounded-full">
           <UserButton afterSignOutUrl="/" />
         </div>
