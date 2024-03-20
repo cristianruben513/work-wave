@@ -10,7 +10,6 @@ export default function NotesPage() {
 
   return (
     <div>
-
       <Info title="Notas de clase">
         <DialogAddNote />
       </Info>

@@ -15,13 +15,7 @@ import { FormTextarea } from "@/components/form/form-textarea";
 import { FormSubmit } from "@/components/form/form-submit";
 import { Button } from "@/components/ui/button";
 
-interface DescriptionProps {
-  data: CardWithList;
-};
-
-export const Description = ({
-  data
-}: DescriptionProps) => {
+export const Description = ({ data }: { data: CardWithList }) => {
   const params = useParams();
   const queryClient = useQueryClient();
 

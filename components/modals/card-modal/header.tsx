@@ -11,13 +11,7 @@ import { useParams } from "next/navigation";
 import { ElementRef, useRef, useState } from "react";
 import { toast } from "sonner";
 
-interface HeaderProps {
-  data: CardWithList;
-}
-
-export const Header = ({
-  data,
-}: HeaderProps) => {
+export const Header = ({ data }: { data: CardWithList }) => {
   const queryClient = useQueryClient();
   const params = useParams();
 
@@ -51,9 +45,7 @@ export const Header = ({
     const title = formData.get("title") as string;
     const boardId = params.boardId as string;
 
-    if (title === data.title) {
-      return;
-    }
+    if (title === data.title) return
 
     execute({
       title,

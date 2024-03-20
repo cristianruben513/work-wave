@@ -5,6 +5,17 @@ import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
+export const Popover = () => {
+  return (
+    <div
+      role="button"
+      className="aspect-video relative h-full w-full bg-muted rounded-xl flex flex-col gap-y-1 items-center justify-center transition shadow-2xl shadow-purple-300/60 dark:shadow-purple-600/20 border-4 border-sky-200/80 dark:border-sky-700/20 hover:shadow-purple-400/70 dark:hover:shadow-purple-500/20"
+    >
+      <p className="text-base text-center font-semibold">Crea un nuevo tablero</p>
+    </div>
+  )
+}
+
 export const BoardList = async () => {
   const { orgId } = auth();
 
@@ -34,14 +45,16 @@ export const BoardList = async () => {
           </p>
         </Link>
       ))}
-      <FormPopover sideOffset={10} side="right">
-        <div
-          role="button"
-          className="aspect-video relative h-full w-full bg-muted rounded-xl flex flex-col gap-y-1 items-center justify-center transition shadow-2xl shadow-purple-300/60 dark:shadow-purple-600/20 border-4 border-sky-200/80 dark:border-sky-700/20 hover:shadow-purple-400/70 dark:hover:shadow-purple-500/20"
-        >
-          <p className="text-base text-center font-semibold">Crea un nuevo tablero</p>
-        </div>
-      </FormPopover>
+      <div className="hidden md:flex">
+        <FormPopover sideOffset={10} side="right">
+          <Popover />
+        </FormPopover>
+      </div>
+      <div className="md:hidden flex">
+        <FormPopover sideOffset={10} side="bottom">
+          <Popover />
+        </FormPopover>
+      </div>
     </div>
   );
 };
