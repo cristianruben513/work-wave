@@ -8,6 +8,10 @@ cloudinary.config({
   api_secret: process.env.API_SECRET
 });
 
+export async function GET() {
+  return NextResponse.json({ message: 'Hello World' });
+}
+
 export async function POST(request: Request) {
 
   // Recuperar el archivo de la petición
