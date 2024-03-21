@@ -38,8 +38,6 @@ export async function POST(request: Request) {
     return content.trim()
   }).filter(Boolean).join('\n')
 
-  console.log(text)
-
   return NextResponse.json({
     id: asset_id,
     url: secure_url,
