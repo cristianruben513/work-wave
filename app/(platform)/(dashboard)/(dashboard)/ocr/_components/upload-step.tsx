@@ -7,11 +7,13 @@ import {
   setAppStatusLoading,
   setAppStatusSuccess
 } from "@/stores/steps-store"
-import { DownloadCloud, Sparkles, UploadCloud } from "lucide-react"
+import { Sparkles, UploadCloud } from "lucide-react"
 import { useCallback } from "react"
 import { useDropzone } from "react-dropzone"
 
 export default function UploadStep() {
+  const host = process.env.NEXT_PUBLIC_APP_URL
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -21,7 +23,7 @@ export default function UploadStep() {
       const formData = new FormData();
       formData.append('image', acceptedFiles[0]);
 
-      const res = await fetch('http://localhost:3000/api/ocr', {
+      const res = await fetch(`${host}/api/ocr`, {
         method: 'POST',
         body: formData
       })
@@ -51,7 +53,7 @@ export default function UploadStep() {
 
   return (
     <div className="w-full flex flex-col gap-5 justify-center items-center mb-5">
-      <form className="w-full md:w-7/12 p-6 py-1 relative" onSubmit={handleSubmit}>
+      <form className="w-full md:w-7/12 p-6 relative" onSubmit={handleSubmit}>
         <div
           className={cn(
             "p-10 w-full h-40 py-2 border-4 border-dotted bg-white/60 dark:bg-neutral-700/40 backdrop-blur-lg  rounded-xl flex flex-col gap-3 justify-center items-center cursor-pointer transition-transform duration-300",

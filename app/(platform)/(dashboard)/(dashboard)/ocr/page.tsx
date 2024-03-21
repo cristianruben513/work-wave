@@ -14,7 +14,6 @@ export default function TextRecognitionPage() {
 
   const handleRefresh = () => {
     setAppStatusUpload()
-    
   }
 
   return (
@@ -22,9 +21,10 @@ export default function TextRecognitionPage() {
       <Info title="Reconocimiento de texto" >
         <Button
           size="icon"
+          onClick={handleRefresh}
         >
           <RefreshCcw
-            className="size-6"
+            className="size-4"
           />
         </Button>
       </Info>

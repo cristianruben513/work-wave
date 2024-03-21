@@ -19,7 +19,7 @@ export default function SuccessStep() {
   }
 
   return (
-    <div className="flex flex-col gap-6 p-6">
+    <div className="flex flex-col gap-6 p-4 md:p-28">
       <div className="bg-white border-4 rounded-xl border-neutral-200 p-5 dark:border-neutral-600">
         {ocrText}
       </div>

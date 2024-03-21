@@ -26,6 +26,11 @@ export async function POST(request: Request) {
     ocr: 'adv_ocr'
   })
 
+  // Si no se pudo subir el archivo, retornar un error
+  if (!result) {
+    return NextResponse.error();
+  }
+
   // Recuperar la información del resultado
   const { asset_id, secure_url, pages, info } = result
   const data = info?.ocr?.adv_ocr?.data
