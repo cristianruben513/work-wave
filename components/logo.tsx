@@ -18,7 +18,7 @@ export const Logo = () => {
           width={30}
         />
         <p className={cn(
-          "text-lg text-neutral-700 dark:text-neutral-300 pb-1",
+          "text-lg text-neutral-700 dark:text-neutral-300",
           headingFont.className,
         )}>
           TeamPilot

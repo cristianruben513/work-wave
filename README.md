@@ -12,7 +12,6 @@ Key Features:
 - List rename, delete, drag & drop reorder and copy
 - Card creation
 - Card description, rename, delete, drag & drop reorder and copy
-- Board limit for every organization
 - Landing page
 - MySQL DB
 - Prisma ORM

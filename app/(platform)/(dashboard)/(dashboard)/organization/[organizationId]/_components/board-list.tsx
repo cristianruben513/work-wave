@@ -26,7 +26,7 @@ export const BoardList = async () => {
       orgId
     },
     orderBy: {
-      createdAt: "desc"
+      title: "asc"
     }
   });
 
@@ -62,8 +62,6 @@ export const BoardList = async () => {
 BoardList.Skeleton = function SkeletonBoardList() {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-      <Skeleton className="aspect-video h-full w-full p-2" />
-      <Skeleton className="aspect-video h-full w-full p-2" />
       <Skeleton className="aspect-video h-full w-full p-2" />
       <Skeleton className="aspect-video h-full w-full p-2" />
       <Skeleton className="aspect-video h-full w-full p-2" />

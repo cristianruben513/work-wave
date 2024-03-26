@@ -91,11 +91,11 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
             Añadir tarjeta
           </FormSubmit>
           <Button onClick={disableEditing}
-            size="sm"
+            size="icon"
             variant="ghost"
             className="bg-red-900 rounded-xl hover:bg-red-900/80"
           >
-            <X className="h-5 w-5" />
+            <X className="size-4 text-white" />
           </Button>
         </div>
       </form>

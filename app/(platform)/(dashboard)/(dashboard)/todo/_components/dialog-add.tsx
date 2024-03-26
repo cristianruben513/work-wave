@@ -19,7 +19,6 @@ import { toast } from "sonner"
 
 export default function DialogAddToDo() {
   const [title, setTitle] = useState('')
-
   const [error, setError] = useState(false)
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)

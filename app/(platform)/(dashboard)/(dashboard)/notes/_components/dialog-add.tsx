@@ -26,12 +26,15 @@ import { useNotesStore } from "@/stores/notes-store"
 import { AlertTriangle, PlusIcon } from "lucide-react"
 import { useEffect, useState } from "react"
 import { toast } from "sonner"
+import { LoaderIcon } from "lucide-react"
 
 export default function DialogAddNote() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [subject, setSubject] = useState('')
   const [error, setError] = useState(false)
+  const [open, setOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const { addNote } = useNotesStore()
 
@@ -47,15 +50,23 @@ export default function DialogAddNote() {
     }
   }, [title, description, subject])
 
-  const handleAddNote = () => {
+  const save = () => new Promise((resolve) => setTimeout(resolve, 2000));
+
+  const handleAddNote = async () => {
     if (error) return
 
+    setLoading(true)
     addNote({
       id: crypto.randomUUID(),
       title,
       subject,
       description,
     })
+    await save()
+      .then(() => setOpen(false))
+      .catch(() => toast.error("Ocurrió un error al guardar la tarea."))
+      .finally(() => setLoading(false))
+
     setTitle('')
     setDescription('')
     toast.success("Nota guardada correctamente.")
@@ -63,7 +74,7 @@ export default function DialogAddNote() {
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">
           <PlusIcon className="size-4 mr-2" />
@@ -118,7 +129,10 @@ export default function DialogAddNote() {
               Cancelar
             </Button>
           </DialogClose>
-          <Button disabled={error} onClick={handleAddNote}>
+          <Button disabled={error || loading} onClick={handleAddNote}>
+            {loading && (
+              <LoaderIcon className="size-4 mr-2 animate-spin" />
+            )}
             Guardar Nota
           </Button>
         </DialogFooter>
