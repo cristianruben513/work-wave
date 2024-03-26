@@ -29,6 +29,8 @@ export default function UploadStep() {
 
       if (!res.ok) {
         setAppStatusError()
+        console.log(res.statusText)
+        console.log(res)
         return
       }
 

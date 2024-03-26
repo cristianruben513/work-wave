@@ -19,7 +19,9 @@ export async function POST(request: Request) {
   const file = formData.get('image') as File;
 
   if (!file) {
-    return NextResponse.error();
+    return NextResponse.json({
+      message: 'No se encontró el archivo'
+    });
   }
 
   const arrayBuffer = await file.arrayBuffer();
@@ -32,7 +34,9 @@ export async function POST(request: Request) {
 
   // Si no se pudo subir el archivo, retornar un error
   if (!result) {
-    return NextResponse.error();
+    return NextResponse.json({
+      message: 'Error al subir el archivo'
+    });
   }
 
   // Recuperar la información del resultado
