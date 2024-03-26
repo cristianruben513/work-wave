@@ -22,7 +22,7 @@ export default function UploadStep() {
       const formData = new FormData();
       formData.append('image', acceptedFiles[0]);
 
-      const res = await fetch('/api/ocr', {
+      const res = await fetch('https://team-pilot.vercel.app/api/ocr', {
         method: 'POST',
         body: formData
       })
