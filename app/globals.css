@@ -64,3 +64,16 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+/* Video Chat */
+.str-video__participant-details {
+  color: white;
+}
+
+.str-video__menu-container {
+  color: white;
+}
+
+.str-video__notification {
+  color: white;
+}

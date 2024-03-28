@@ -1,10 +1,5 @@
-import { Info } from "@/components/info"
+import CreateMeetingPage from "./CreateMeetingPage";
 
 export default function CallsPage() {
-  return (
-    <div className="w-full">
-      <Info title="Videollamadas" />
-     
-    </div>
-  )
+  return <CreateMeetingPage />;
 }
