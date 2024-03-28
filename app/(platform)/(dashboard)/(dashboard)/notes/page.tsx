@@ -1,4 +1,5 @@
 "use client"
+import 'regenerator-runtime/runtime'
 
 import { Info } from "@/components/info"
 import { useNotesStore } from "@/stores/notes-store"

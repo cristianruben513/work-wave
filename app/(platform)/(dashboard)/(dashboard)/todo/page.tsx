@@ -1,4 +1,5 @@
 "use client"
+import 'regenerator-runtime/runtime'
 
 import { Info } from "@/components/info"
 import { useToDoStore } from "@/stores/todo-store"

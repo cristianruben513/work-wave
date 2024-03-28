@@ -1,6 +1,4 @@
-"use client"
-
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -10,8 +8,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -20,13 +18,13 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
-import { useNotesStore } from "@/stores/notes-store"
-import { AlertTriangle, PlusIcon } from "lucide-react"
-import { useEffect, useState } from "react"
-import { toast } from "sonner"
-import { LoaderIcon } from "lucide-react"
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { useNotesStore } from "@/stores/notes-store";
+import { LoaderIcon, MicIcon, PlusIcon } from "lucide-react";
+import { useEffect, useState } from "react";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { toast } from "sonner";
 
 export default function DialogAddNote() {
   const [title, setTitle] = useState('')
@@ -36,12 +34,23 @@ export default function DialogAddNote() {
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  const {
+    transcript,
+    listening,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
+
+  const startListening = () => SpeechRecognition.startListening({ continuous: true, language: "es-ES" });
+
   const { addNote } = useNotesStore()
 
   const handleChangeSubject = (value: string) => {
     setSubject(value)
-    console.log(value)
   }
+
+  useEffect(() => {
+    setDescription(transcript)
+  }, [transcript])
 
   useEffect(() => {
     setError(false)
@@ -109,20 +118,27 @@ export default function DialogAddNote() {
               </SelectGroup>
             </SelectContent>
           </Select>
+          
           <Textarea
             placeholder="Descripción"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+
+          {browserSupportsSpeechRecognition && (
+            <Button
+              variant="secondary"
+              onTouchStart={startListening}
+              onMouseDown={startListening}
+              onTouchEnd={SpeechRecognition.stopListening}
+              onMouseUp={SpeechRecognition.stopListening}
+            >
+              <MicIcon className="size-4 mr-2 " />
+              {listening ? 'Escuchando...' : 'Empezar dictado'}
+            </Button>
+          )}
         </div>
-        {error && (
-          <div className="flex items-center justify-end">
-            <AlertTriangle className="size-4 mr-2 text-red-500" />
-            <p className="text-red-500 text-sm">
-              Necesitas ingresar un título y una descripción.
-            </p>
-          </div>
-        )}
+
         <DialogFooter>
           <DialogClose asChild>
             <Button type="button" variant="secondary">
