@@ -13,8 +13,9 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { useToDoStore } from "@/stores/todo-store"
-import { AlertTriangle, LoaderIcon, PlusIcon } from "lucide-react"
+import { LoaderIcon, MicIcon, PlusIcon } from "lucide-react"
 import { useEffect, useState } from "react"
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 import { toast } from "sonner"
 
 export default function DialogAddToDo() {
@@ -23,7 +24,20 @@ export default function DialogAddToDo() {
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  const {
+    transcript,
+    listening,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
+
+  const startListening = () => SpeechRecognition.startListening({ continuous: true, language: "es-ES" });
+
   const { addTodo } = useToDoStore()
+
+  
+  useEffect(() => {
+    setTitle(transcript)
+  }, [transcript])
 
   useEffect(() => {
     setError(false)
@@ -74,15 +88,21 @@ export default function DialogAddToDo() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
+
+          {browserSupportsSpeechRecognition && (
+            <Button
+              variant="secondary"
+              onTouchStart={startListening}
+              onMouseDown={startListening}
+              onTouchEnd={SpeechRecognition.stopListening}
+              onMouseUp={SpeechRecognition.stopListening}
+            >
+              <MicIcon className="size-4 mr-2 " />
+              {listening ? 'Escuchando...' : 'Empezar dictado'}
+            </Button>
+          )}
         </div>
-        {error && (
-          <div className="flex items-center justify-end">
-            <AlertTriangle className="size-4 mr-2 text-red-500" />
-            <p className="text-red-500 text-sm">
-              Necesitas ingresar un título
-            </p>
-          </div>
-        )}
+
         <DialogFooter>
           <DialogClose asChild>
             <Button type="button" variant="secondary">
