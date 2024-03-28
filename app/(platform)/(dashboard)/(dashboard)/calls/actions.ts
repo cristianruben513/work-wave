@@ -13,21 +13,14 @@ export async function getToken() {
 
   const user = await currentUser();
 
-  console.log("Generating token for user: ", user?.id);
-
   if (!user) {
     throw new Error("User not authenticated");
   }
 
   const streamClient = new StreamClient(streamApiKey, streamApiSecret);
-
   const expirationTime = Math.floor(Date.now() / 1000) + 60 * 60;
-
   const issuedAt = Math.floor(Date.now() / 1000) - 60;
-
   const token = streamClient.createToken(user.id, expirationTime, issuedAt);
-
-  console.log("Successfully generated token: ", token);
 
   return token;
 }
@@ -36,5 +29,6 @@ export async function getUserIds(emailAddresses: string[]) {
   const response = await clerkClient.users.getUserList({
     emailAddress: emailAddresses,
   });
+  
   return response.map((user) => user.id);
 }

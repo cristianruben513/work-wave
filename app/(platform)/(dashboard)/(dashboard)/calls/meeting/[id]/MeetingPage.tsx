@@ -132,7 +132,6 @@ function SetupUI({ onSetupComplete }: SetupUIProps) {
 
   return (
     <div className="flex flex-col items-center gap-3">
-      <h1 className="text-center text-2xl font-bold">Configuración</h1>
       <VideoPreview />
       <div className="flex h-16 items-center gap-3">
         <AudioVolumeIndicator />

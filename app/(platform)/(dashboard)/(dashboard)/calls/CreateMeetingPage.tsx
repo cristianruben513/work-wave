@@ -1,45 +1,34 @@
 "use client";
 
-import { ButtonVideoChat } from "@/components/ui/button";
+import { Button, ButtonVideoChat, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
-import {
-  Call,
-  MemberRequest,
-  useStreamVideoClient,
-} from "@stream-io/video-react-sdk";
-import { Copy, Loader2 } from "lucide-react";
+import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
+import { ArrowRight, Copy, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { getUserIds } from "./actions";
 
 export default function CreateMeetingPage() {
   const [descriptionInput, setDescriptionInput] = useState("");
   const [startTimeInput, setStartTimeInput] = useState("");
-
   const [call, setCall] = useState<Call>();
 
   const client = useStreamVideoClient();
-
   const { user } = useUser();
 
   async function createMeeting() {
-    if (!client || !user) {
-      return;
-    }
+    if (!client || !user) return;
 
     try {
       const id = crypto.randomUUID();
-
       const callType = "default";
-
       const call = client.call(callType, id);
-
       const starts_at = new Date(startTimeInput || Date.now()).toISOString();
 
       await call.getOrCreate({
         data: {
           starts_at,
-          // members,
+          // members
           custom: { description: descriptionInput },
         },
       });
@@ -57,10 +46,7 @@ export default function CreateMeetingPage() {
 
   return (
     <div className="flex flex-col items-center space-y-6">
-      <h1 className="text-center text-2xl font-bold">
-        Bienvenido {user.username}!
-      </h1>
-      <div className="mx-auto w-80 space-y-6 rounded-md bg-slate-100 p-5">
+      <div className="mx-auto w-96 space-y-6 rounded-lg bg-white dark:bg-neutral-800 dark:border-neutral-700 p-8 border-4 border-neutral-200">
         <h2 className="text-xl font-bold">Crear una nueva reunión</h2>
         <DescriptionInput
           value={descriptionInput}
@@ -71,6 +57,7 @@ export default function CreateMeetingPage() {
           Crear reunión
         </ButtonVideoChat>
       </div>
+
       {call && <MeetingLink call={call} />}
     </div>
   );
@@ -168,36 +155,28 @@ function StartTimeInput({ value, onChange }: StartTimeInputProps) {
   );
 }
 
-interface ParticipantsInputProps {
-  value: string;
-  onChange: (value: string) => void;
-}
-
-interface MeetingLinkProps {
-  call: Call;
-}
-
-function MeetingLink({ call }: MeetingLinkProps) {
+function MeetingLink({ call }: { call: Call }) {
   const meetingLink = `${process.env.NEXT_PUBLIC_APP_URL}/calls/meeting/${call.id}`;
 
   return (
     <div className="flex flex-col items-center gap-3 text-center">
       <div className="flex items-center gap-3">
-        <span>
-          Enlace de invitado:{" "}
-          <button
-            title="Copiar enlace de invitado"
-            onClick={() => {
-              navigator.clipboard.writeText(meetingLink);
-              alert("Copiado al portapapeles");
-            }}
-            className="flex gap-x-3"
+        <span className="flex gap-4">
+          <Link
+            href={meetingLink}
+            target="_blank"
+            className={cn(buttonVariants(), "flex gap-3")}
           >
-            <Link href={meetingLink} className="font-medium">
-              {meetingLink}
-            </Link>
-            <Copy />
-          </button>
+            Ir a la reunión
+            <ArrowRight className="size-4" />
+          </Link>
+          <Button
+            onClick={() => navigator.clipboard.writeText(meetingLink)}
+            className="flex gap-3"
+          >
+            <span>Copiar enlace</span>
+            <Copy className="size-4" />
+          </Button>
         </span>
       </div>
     </div>

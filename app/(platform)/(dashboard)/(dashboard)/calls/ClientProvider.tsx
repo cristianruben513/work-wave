@@ -26,7 +26,11 @@ export default function ClientProvider({ children }: ClientProviderProps) {
     );
   }
 
-  return <StreamVideo client={videoClient}>{children}</StreamVideo>;
+  return (
+    <StreamVideo client={videoClient}>
+      {children}
+    </StreamVideo>
+  )
 }
 
 function useInitializeVideoClient() {
