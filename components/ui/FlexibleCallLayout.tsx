@@ -26,7 +26,7 @@ export default function FlexibleCallLayout() {
     <div className="space-y-3">
       <CallLayoutButtons layout={layout} setLayout={setLayout} />
       <CallLayoutView layout={layout} />
-      <CallControls onLeave={() => router.push(`/meeting/${call.id}/left`)} />
+      <CallControls onLeave={() => router.push(`/calls/meeting/${call.id}/left`)} />
       <EndCallButton />
     </div>
   );
