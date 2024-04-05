@@ -2,7 +2,7 @@
 
 import { unsplash } from "@/lib/unsplash";
 import { cn } from "@/lib/utils";
-import { Check, FileWarningIcon, Loader2 } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
@@ -16,7 +16,6 @@ interface FormPickerProps {
 export const FormPicker = ({ id, errors, }: FormPickerProps) => {
   const { pending } = useFormStatus();
   const [images, setImages] = useState<Array<Record<string, any>> | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedImageId, setSelectedImageId] = useState(null);
 
   useEffect(() => {
@@ -32,8 +31,6 @@ export const FormPicker = ({ id, errors, }: FormPickerProps) => {
         setImages(newImages);
       } catch (error) {
         setImages(null);
-      } finally {
-        setIsLoading(false);
       }
     };
 
@@ -43,15 +40,7 @@ export const FormPicker = ({ id, errors, }: FormPickerProps) => {
   if (!images) {
     return (
       <div className="p-6 flex items-center justify-center">
-        <FileWarningIcon className="h-6 w-6 text-red-700" />
-      </div>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <div className="p-6 flex items-center justify-center">
-        <Loader2 className="h-6 w-6 text-sky-700 animate-spin" />
+        <Loader2 className="h-6 w-6 text-red-700" />
       </div>
     );
   }
@@ -78,7 +67,7 @@ export const FormPicker = ({ id, errors, }: FormPickerProps) => {
               className="hidden"
               checked={selectedImageId === image.id}
               disabled={pending}
-              value={`${image.id}|${image.urls.thumb}|${image.urls.full}|${image.links.html}|${image.user.name}`}
+              value={`${image.id}|${image.urls.full}`}
             />
             <Image
               src={image.urls.thumb}

@@ -11,7 +11,7 @@ export const Popover = () => {
       role="button"
       className="aspect-video relative h-full w-full bg-muted rounded-xl flex flex-col gap-y-1 items-center justify-center transition shadow-2xl shadow-purple-300/60 dark:shadow-purple-600/20 border-4 border-sky-200/80 dark:border-sky-700/20 hover:shadow-purple-400/70 dark:hover:shadow-purple-500/20"
     >
-      <p className="text-base text-center font-semibold">Crea un nuevo tablero</p>
+      <p className="md:text-base text-xs text-center font-semibold">Crea un nuevo tablero</p>
     </div>
   )
 }
@@ -40,7 +40,7 @@ export const BoardList = async () => {
           style={{ backgroundImage: `url(${board.imageFullUrl})` }}
         >
           <div className="absolute inset-0 bg-black/30" />
-          <p className="relative font-semibold text-white text-base md:text-xl">
+          <p className="relative font-semibold text-white text-xs md:text-xl">
             {board.title}
           </p>
         </Link>

@@ -66,7 +66,7 @@ export const Actions = ({ data }: { data: CardWithList }) => {
       <Button
         onClick={onCopy}
         disabled={isLoadingCopy}
-        variant="gray"
+        variant={"secondary"}
         className="w-full justify-start"
         size="inline"
       >
@@ -76,8 +76,8 @@ export const Actions = ({ data }: { data: CardWithList }) => {
       <Button
         onClick={onDelete}
         disabled={isLoadingDelete}
-        variant="gray"
         className="w-full justify-start"
+        variant={"secondary"}
         size="inline"
       >
         <Trash className="h-4 w-4 mr-2" />
@@ -90,9 +90,9 @@ export const Actions = ({ data }: { data: CardWithList }) => {
 Actions.Skeleton = function ActionsSkeleton() {
   return (
     <div className="space-y-2 mt-2">
-      <Skeleton className="w-20 h-4 bg-neutral-200" />
-      <Skeleton className="w-full h-8 bg-neutral-200" />
-      <Skeleton className="w-full h-8 bg-neutral-200" />
+      <Skeleton className="w-20 h-4 bg-neutral-200 dark:bg-neutral-700" />
+      <Skeleton className="w-full h-8 bg-neutral-200 dark:bg-neutral-700" />
+      <Skeleton className="w-full h-8 bg-neutral-200 dark:bg-neutral-700" />
     </div>
   );
 };
