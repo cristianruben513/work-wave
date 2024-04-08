@@ -8,7 +8,7 @@ generator client {
 }
 
 model Board {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId // Utiliza auto() para dejar que MongoDB genere el _id automáticamente
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
   orgId        String
   title        String
   imageId      String
