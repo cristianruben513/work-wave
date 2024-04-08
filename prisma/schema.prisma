@@ -1,7 +1,6 @@
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -9,32 +8,32 @@ generator client {
 }
 
 model Board {
-  id           String @id @default(uuid())
+  id           String @id @default(auto()) @map("_id") @db.ObjectId // Utiliza auto() para dejar que MongoDB genere el _id automáticamente
   orgId        String
   title        String
   imageId      String
-  imageFullUrl String @db.Text
+  imageFullUrl String @map("image_full_url")
   lists        List[]
 }
 
 model List {
-  id      String @id @default(uuid())
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
   title   String
   order   Int
-  boardId String
-  board   Board  @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  boardId String @db.ObjectId
+  board   Board  @relation(fields: [boardId], references: [id])
   cards   Card[]
 
   @@index([boardId])
 }
 
 model Card {
-  id          String  @id @default(uuid())
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   order       Int
-  description String? @db.Text
-  listId      String
-  list        List    @relation(fields: [listId], references: [id], onDelete: Cascade)
+  description String?
+  listId      String  @map("list_id") @db.ObjectId
+  list        List    @relation(fields: [listId], references: [id])
 
   @@index([listId])
 }
