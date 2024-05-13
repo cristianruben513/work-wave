@@ -1,4 +1,4 @@
-# TeamPilot: Next.js 14, Server Actions, React, Prisma, Stripe, Tailwind, MySQL
+# TeamPilot: Next.js 14, Server Actions, React, Prisma, Tailwind, MySQL
 
 ![image](https://github.com/cristian51310/team-pilot/assets/105263575/f1a9dee1-b3f8-4479-9150-4ef707c1e0d2)
 
