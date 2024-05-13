@@ -6,9 +6,6 @@ export default function SidebarSkeleton() {
     <div className="rounded-md bg-neutral-300/30 backdrop-blur-lg p-3 min-h-[calc(100vh-128px)]">
       <div className="grid gap-2 mb-2">
         <Skeleton className="p-2.5 rounded-md bg-white h-[40px]"/>
-        <Skeleton className="p-2.5 rounded-md bg-white h-[40px]"/>
-        <Skeleton className="p-2.5 rounded-md bg-white h-[40px]"/>
-        <Skeleton className="p-2.5 rounded-md bg-white h-[40px]"/>
       </div>
       <div className="flex items-center justify-between mb-2">
         <Skeleton className="h-10 w-[50%] bg-transparent" />

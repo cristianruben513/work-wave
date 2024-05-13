@@ -18,7 +18,7 @@ export const Navbar = () => {
           <Link
             className={cn(buttonVariants({ size: "sm" }), "hidden md:flex")}
             href="/sign-up">
-            Probar TeamPilot gratis
+            Probar WorkWave gratis
           </Link>
         </div>
       </div>

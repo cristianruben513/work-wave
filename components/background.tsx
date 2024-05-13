@@ -8,10 +8,10 @@ export default function Background() {
     bg-[size:6rem_4rem]">
       <div className="
       absolute bottom-0 left-0 right-0 top-0 
-      bg-[radial-gradient(circle_400px_at_100%_200px,#d5c5ff,transparent)] 
-      md:bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]
-      dark:bg-[radial-gradient(circle_400px_at_100%_200px,rgba(255,0,182,.10),transparent)] 
-      dark:md:bg-[radial-gradient(circle_800px_at_100%_200px,rgba(255,0,182,.10),transparent)]">
+      bg-[radial-gradient(circle_400px_at_100%_200px,#B3FCBE,transparent)] 
+      md:bg-[radial-gradient(circle_800px_at_100%_200px,#B3FCBE,transparent)]
+      dark:bg-[radial-gradient(circle_400px_at_100%_200px,#00800D20,transparent)] 
+      dark:md:bg-[radial-gradient(circle_800px_at_100%_200px,#00800D20,transparent)]">
       </div>
     </div>
   )

@@ -5,9 +5,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import {
-  CalendarCheck,
-  NotebookPen,
-  PhoneCall,
   Plus,
   Sparkles
 } from "lucide-react";
@@ -30,24 +27,9 @@ export const Sidebar = ({ storageKey = "t-sidebar-state", }: SidebarProps) => {
 
   const routes = [
     {
-      label: "Notas de clase",
-      icon: <NotebookPen className="h-4 w-4 mr-2" />,
-      href: `/notes`,
-    }, ,
-    {
       label: "Reconocimiento de texto",
       icon: <Sparkles className="h-4 w-4 mr-2" />,
       href: `/ocr`,
-    },
-    {
-      label: "Lista de tareas",
-      icon: <CalendarCheck className="h-4 w-4 mr-2" />,
-      href: `/todo`,
-    },
-    {
-      label: "Videollamadas",
-      icon: <PhoneCall className="h-4 w-4 mr-2" />,
-      href: `/calls`,
     },
   ];
 

@@ -21,7 +21,7 @@ export const Logo = () => {
           "text-lg text-neutral-700 dark:text-neutral-300",
           headingFont.className,
         )}>
-          TeamPilot
+          WorkWave
         </p>
       </div>
     </Link>

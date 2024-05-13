@@ -20,40 +20,31 @@ const MarketingPage = () => {
           Mejora tu productividad
         </h1>
 
-        <div className="flex items-center justify-center text-xl md:text-6xl bg-gradient-to-r from-slate-500 via-blue-500 to-purple-600 text-white px-8 py-3 rounded-md w-fit my-4 md:pb-5 pb-4">
+        <div className="flex items-center justify-center text-2xl md:text-6xl bg-gradient-to-r from-emerald-500 via-blue-500 to-green-600 text-white px-8 py-2 md:py-3 rounded-md w-fit mb-4">
           Organiza tus proyectos
         </div>
       </div>
 
-      <p className="text-base md:text-xl text-neutral-500 mt-3 text-center mx-auto text-pretty">
+      <p className="text-base md:text-xl text-neutral-500 mt-3 text-center mx-auto text-pretty px-5">
         Colabora, gestiona proyectos y alcanza nuevos picos de productividad.
       </p>
 
       <Link
         className={cn(
           buttonVariants({ size: "lg" }),
-          "mt-10 text-lg"
+          "mt-10 text-base md:text-lg"
         )}
         href="/sign-up">
-        Probar TeamPilot gratis
+        Probar WorkWave gratis
       </Link>
 
       <Image
-        src="/screenshot.webp"
+        src="/screenshot.jpg"
         alt="Screenshot"
-        width={2000}
-        height={1008}
-        className="rounded-xl mt-10 max-w-72 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
+        width={2400}
+        height={1350}
+        className="rounded-xl mt-10 w-[95%] md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
       />
-
-      <Image
-        src="/screenshot2.webp"
-        alt="Screenshot"
-        width={2000}
-        height={1008}
-        className="rounded-xl mt-6 md:mt-10 max-w-72 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
-      />
-
     </div>
   );
 };
