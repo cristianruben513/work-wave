@@ -1,6 +1,6 @@
-# TeamPilot: Next.js 14, Server Actions, React, Prisma, Tailwind, MySQL
+# Work Wave: Next.js 14, Server Actions, React, Prisma, Tailwind, MongoDB
 
-![image](https://github.com/cristian51310/team-pilot/assets/105263575/f1a9dee1-b3f8-4479-9150-4ef707c1e0d2)
+!["Work Wave Landing"](https://github.com/user-attachments/assets/aaf10b38-207c-4d5a-8333-6aba477d0863)
 
 Key Features:
 - Auth 
@@ -13,6 +13,6 @@ Key Features:
 - Card creation
 - Card description, rename, delete, drag & drop reorder and copy
 - Landing page
-- MySQL DB
+- MongoDB
 - Prisma ORM
 - shadcnUI & TailwindCSS

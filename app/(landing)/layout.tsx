@@ -4,11 +4,11 @@ import { Navbar } from "./_components/navbar";
 
 const MarketingLayout = ({ children }: { children: React.ReactNode; }) => {
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       <Background />
       <Navbar />
 
-      <main className="pt-24 pb-10 :pb-20 ">
+      <main className="pt-24 pb-16">
         {children}
       </main>
 
